@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>storepagelint</title>
+    <meta name="description" content="Reads the copy on your game store page and says, rule by rule, where a reader can find the genre and where they cannot.">
+    <style>:root { color-scheme: light dark; } * { box-sizing: border-box; } body { margin: 0 auto; max-width: 42rem; padding: 2rem 1.25rem 4rem; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; } h1 { font-size: 2rem; margin: 0 0 .25rem; } h2 { font-size: 1.15rem; margin: 2rem 0 .5rem; } .tagline { font-size: 1.15rem; margin: 0 0 1.5rem; } pre { padding: .85rem 1rem; overflow-x: auto; border-radius: 6px; background: #f4f4f4; border: 1px solid #ddd; } code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .95rem; } footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid #ddd; font-size: .9rem; } footer p { margin: .4rem 0; } @media (prefers-color-scheme: dark) { body { background: #111; color: #eee; } pre { background: #1c1c1c; border-color: #333; } footer { border-color: #333; } a { color: #7ab; } } .price { margin: 2rem 0; padding: 1.25rem; border: 1px solid #ddd; border-radius: 6px; } .price .amount { font-size: 1.6rem; margin: 0 0 .75rem; } .price .amount span { font-size: 1rem; font-weight: normal; } .buy { display: inline-block; padding: .65rem 1.4rem; border-radius: 6px; background: #1a6; color: #fff; text-decoration: none; font-weight: 600; } @media (prefers-color-scheme: dark) { .price { border-color: #333; } }</style>
+  </head>
+  <body>
+    <h1>storepagelint</h1>
+    <p class="tagline">Reads the copy on your game store page and says, rule by rule, where a reader can find the genre and where they cannot.</p>
+    <pre><code>pip install storepagelint==0.1.0</code></pre>
+    <h2>What it does</h2>
+    <ul>
+      <li>Checks whether a genre word appears inside the first glance budget, 140 characters by default, and --fold N changes it.</li>
+      <li>Checks whether the first sentence names a genre at all, and whether your genre tags appear anywhere in the text a reader reads.</li>
+      <li>Counts how many unrelated genre families a reader is offered, and flags a page that only says &quot;like X&quot; or &quot;meets X&quot;.</li>
+      <li>Flags filler words that would fit any page, and a short description that never names a thing the player does with their hands.</li>
+      <li>Exits 0, 3 when a FAIL is found, and 2 on a usage error such as a missing file. A release checklist should treat 2 as a failure too.</li>
+      <li>Reads one local file that you fill in yourself. No network call, ever.</li>
+    </ul>
+    <h2>What it does not do</h2>
+    <ul>
+      <li>It never says whether the game is appealing. That is not in the text, and no tool can read it there.</li>
+      <li>It does not fetch a store page, does not know your game, and sends nothing anywhere.</li>
+      <li>A FAIL does not mean your page is bad. It means a reader cannot find the information at that place in your text.</li>
+      <li>No telemetry, no analytics.</li>
+    </ul>
+    <h2>The 140 is this tool&#x27;s budget, not a measurement</h2>
+    <p>No store publishes one number at which a short description is cut: where the text ends depends on the surface it is shown on. 140 characters is a first glance budget chosen here, and it is meant to be changed.</p>
+    <h2>Its word lists are opinions, not data</h2>
+    <p>The genre words, the families, the filler words and the player verbs are written by hand and live in one file. They are short on purpose, they are not taken from any store or third party list, and they will miss a genre you care about. The --vocabulary flag replaces any of them with your own.</p>
+    <h2>Status</h2>
+    <p>Version 0.1.0. The example output in the readme is produced by a test, so it cannot drift from the code. Nobody other than me has run this against a page they were about to publish. If you try it, the most useful thing you can send back is a real page whose genre is obvious to a reader and that this tool marks FAIL, or the reverse. <a href="https://github.com/Rezarys/storepagelint/issues">open an issue</a>.</p>
+    <section class="price">
+      <h2>Price</h2>
+      <p class="amount">9 EUR <span>one time, for the extended vocabulary pack</span></p>
+      <p>The tool itself is free and MIT, and the extended vocabulary pack is priced at 9 EUR, but nothing can be bought today and no payment can be taken. No date is promised. The button below opens an issue on the repository: it records interest in public, takes no card, no address and no money, and it is read.</p>
+      <p><a class="buy" href="https://github.com/Rezarys/storepagelint/issues/new">Register pre-order interest</a></p>
+    </section>
+    <footer>
+      <p><a href="https://github.com/Rezarys/storepagelint">Source code</a></p>
+      <p>Contact: <a href="https://github.com/Rezarys/storepagelint/issues">open an issue</a></p>
+      <p>Not affiliated with any game store or storefront. This is an independent project.</p>
+      <p>MIT license. By Younes Z. Built with AI assistance, reviewed and tested by me.</p>
+      <p>No telemetry, no cookies, no analytics on this page.</p>
+    </footer>
+  </body>
+</html>
